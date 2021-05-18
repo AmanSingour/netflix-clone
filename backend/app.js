@@ -1,3 +1,14 @@
+/*/
+    __Project : Netflix Clone Web App
+    __Description : A MERN stack web app.
+    __Features : Show all movies list using IMDB API, Login and Signup user,
+                Authorized user can add movies to their favorite list. 
+                Authorized user can add movies to watched list.
+    __Author : Aman Singour
+    __Started : 18 May 2021
+    __Ended : __ May 2021
+/*/
+
 const express = require("express")
 const connectDB = require('./config/db')
 const bodyParser = require('body-parser')
