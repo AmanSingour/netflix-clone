@@ -1,0 +1,30 @@
+body {
+  font-family: 'Roboto',sans-serif;
+}
+
+.Container {
+  width: 100vw;
+  height: 100vh;
+}
+
+.Container header {
+  position: fixed;
+  top: 0;
+  padding: 1rem;
+  z-index: 5;
+  height: 5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  vertical-align: middle;
+}
+
+.Container h1 {
+  font-family: 'Bebas Neue';
+  font-weight: bolder;
+}
+
+.Container p {
+  font-family: 'Roboto', sans-serif;
+}
+/*# sourceMappingURL=style.module.css.map */

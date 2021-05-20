@@ -1,0 +1,75 @@
+.Container {
+  width: 100vw;
+  height: 100%;
+}
+
+.Hero {
+  display: block;
+  height: 100vh;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/11c803d4-06f3-467e-91f7-0560ce15a396/0eceea79-5607-407a-ae10-52f26872d601/IN-en-20210517-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+  -webkit-box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.7);
+          box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-position: center;
+  padding-top: 10%;
+  color: #ffffff;
+}
+
+.Hero .MainCopy {
+  text-align: center;
+}
+
+.Hero .Form {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Hero .Form div {
+  width: 70%;
+}
+
+.Hero .Form div input {
+  height: 3.5rem;
+  width: 60%;
+  padding: 0 0.7rem;
+  border-radius: 3px 0 0 3px;
+  background-color: #fff;
+  border: 0;
+  outline: none;
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -ms-border-radius: 3px 0 0 3px;
+  -o-border-radius: 3px 0 0 3px;
+}
+
+.Hero .Form div button {
+  height: 100%;
+  background-color: #E53D36;
+  border: 0;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.center, .Hero, .Hero .Form {
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .Form button {
+    background-color: #000000;
+  }
+}
+/*# sourceMappingURL=style.module.css.map */

@@ -1,0 +1,69 @@
+@import '../../utils/theme/colors';
+@import '../../utils//theme/breakpoints';
+
+.Container{
+    width: 100vw;
+    height: 100%;
+}
+
+.Hero{
+    @extend .center;
+    display: block;
+    height: 100vh;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/11c803d4-06f3-467e-91f7-0560ce15a396/0eceea79-5607-407a-ae10-52f26872d601/IN-en-20210517-popsignuptwoweeks-perspective_alpha_website_small.jpg');
+    box-shadow:inset 0 0 0 2000px rgba(#000, 0.7);
+    background-size: cover;
+    background-position: center;
+
+    padding-top: 10%;
+    color: $text-color;
+
+    .MainCopy{
+        text-align: center; 
+    }
+
+    .Form{
+        @extend .center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        div{
+            width: 70%;
+            input{
+                height: 3.5rem;
+                width: 60%;
+                padding: 0 0.7rem ;
+                border-radius: 3px 0 0 3px;
+                background-color: #fff;
+                border: 0;
+                outline: none;
+                -webkit-border-radius: 3px 0 0 3px;
+                -moz-border-radius: 3px 0 0 3px;
+                -ms-border-radius: 3px 0 0 3px;
+                -o-border-radius: 3px 0 0 3px;
+            }
+            button{
+                height: 100%;
+                background-color: $primary-color;
+                border: 0;
+                padding: 1rem;
+                color: $text-color;
+            }
+        }
+    }
+}
+
+.center{
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .Form{
+        button{
+            background-color: $secondary-color;
+        }
+    }
+}
