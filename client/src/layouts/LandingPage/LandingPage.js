@@ -15,6 +15,8 @@ const MovieView  = lazy(() => import('../../components/MovieView/MovieView'))
 //* IF USER NOT LOGGED IN
 export const LandingPage = ({history, ...props}) =>{
 
+    const [genres, setGenres] = React.useState([])
+
     //? GETTING ALL MOVIES FROM STORE STATE...
     var allMovies = useSelector(state => state.movies)    
 
@@ -37,159 +39,26 @@ export const LandingPage = ({history, ...props}) =>{
     })
     */
 
+    React.useEffect(() => {
 
-    allMovies = [
-        {
-            category: 'Action',
-            movies:[
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/eb3c7/3351b95b1ce100badd6dbf5625b2b8d12f0eb3c7.jpg",
-                    "imdbid":"tt3640424",
-                    "largeimage":"",
-                    "netflixid":"80112565",
-                    "rating":"0",
-                    "released":"2016",
-                    "runtime":"2h4m",
-                    "synopsis":"Allied agent Max Vatan falls for a French spy during World War II. When Vatan learns she might be a double agent, he strives to prove her innocence.",
-                    "title":"Allied",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/f9145/e87a5a4862ddf9e98fcca66780b02d4de44f9145.jpg",
-                    "imdbid":"tt3502172",
-                    "largeimage":"",
-                    "netflixid":"70307407",
-                    "rating":"0",
-                    "released":"2014",
-                    "runtime":"1h24m",
-                    "synopsis":"While a documentary team searches remote parts of the Indonesian jungle looking for an endangered leopard, they soon realize they&#39;re being stalked.",
-                    "title":"The Jungle",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/eb3c7/3351b95b1ce100badd6dbf5625b2b8d12f0eb3c7.jpg",
-                    "imdbid":"tt3640424",
-                    "largeimage":"",
-                    "netflixid":"80112565",
-                    "rating":"0",
-                    "released":"2016",
-                    "runtime":"2h4m",
-                    "synopsis":"Allied agent Max Vatan falls for a French spy during World War II. When Vatan learns she might be a double agent, he strives to prove her innocence.",
-                    "title":"Allied",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/f9145/e87a5a4862ddf9e98fcca66780b02d4de44f9145.jpg",
-                    "imdbid":"tt3502172",
-                    "largeimage":"",
-                    "netflixid":"70307407",
-                    "rating":"0",
-                    "released":"2014",
-                    "runtime":"1h24m",
-                    "synopsis":"While a documentary team searches remote parts of the Indonesian jungle looking for an endangered leopard, they soon realize they&#39;re being stalked.",
-                    "title":"The Jungle",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/eb3c7/3351b95b1ce100badd6dbf5625b2b8d12f0eb3c7.jpg",
-                    "imdbid":"tt3640424",
-                    "largeimage":"",
-                    "netflixid":"80112565",
-                    "rating":"0",
-                    "released":"2016",
-                    "runtime":"2h4m",
-                    "synopsis":"Allied agent Max Vatan falls for a French spy during World War II. When Vatan learns she might be a double agent, he strives to prove her innocence.",
-                    "title":"Allied",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-            ]
-        },
-        {
-            category: 'Sc-Fi',
-            movies:[
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/eb3c7/3351b95b1ce100badd6dbf5625b2b8d12f0eb3c7.jpg",
-                    "imdbid":"tt3640424",
-                    "largeimage":"",
-                    "netflixid":"80112565",
-                    "rating":"0",
-                    "released":"2016",
-                    "runtime":"2h4m",
-                    "synopsis":"Allied agent Max Vatan falls for a French spy during World War II. When Vatan learns she might be a double agent, he strives to prove her innocence.",
-                    "title":"Allied",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/f9145/e87a5a4862ddf9e98fcca66780b02d4de44f9145.jpg",
-                    "imdbid":"tt3502172",
-                    "largeimage":"",
-                    "netflixid":"70307407",
-                    "rating":"0",
-                    "released":"2014",
-                    "runtime":"1h24m",
-                    "synopsis":"While a documentary team searches remote parts of the Indonesian jungle looking for an endangered leopard, they soon realize they&#39;re being stalked.",
-                    "title":"The Jungle",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/eb3c7/3351b95b1ce100badd6dbf5625b2b8d12f0eb3c7.jpg",
-                    "imdbid":"tt3640424",
-                    "largeimage":"",
-                    "netflixid":"80112565",
-                    "rating":"0",
-                    "released":"2016",
-                    "runtime":"2h4m",
-                    "synopsis":"Allied agent Max Vatan falls for a French spy during World War II. When Vatan learns she might be a double agent, he strives to prove her innocence.",
-                    "title":"Allied",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/f9145/e87a5a4862ddf9e98fcca66780b02d4de44f9145.jpg",
-                    "imdbid":"tt3502172",
-                    "largeimage":"",
-                    "netflixid":"70307407",
-                    "rating":"0",
-                    "released":"2014",
-                    "runtime":"1h24m",
-                    "synopsis":"While a documentary team searches remote parts of the Indonesian jungle looking for an endangered leopard, they soon realize they&#39;re being stalked.",
-                    "title":"The Jungle",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-                {
-                    "download":"0",
-                    "image":"http://art-1.nflximg.net/eb3c7/3351b95b1ce100badd6dbf5625b2b8d12f0eb3c7.jpg",
-                    "imdbid":"tt3640424",
-                    "largeimage":"",
-                    "netflixid":"80112565",
-                    "rating":"0",
-                    "released":"2016",
-                    "runtime":"2h4m",
-                    "synopsis":"Allied agent Max Vatan falls for a French spy during World War II. When Vatan learns she might be a double agent, he strives to prove her innocence.",
-                    "title":"Allied",
-                    "type":"movie",
-                    "unogsdate":"2017-08-11",
-                },
-            ]
-        }
-    ]
+        const feature = 'https://api.themoviedb.org/3/'
+
+        const api_key = 'api_key=d01559b3aab4074f1c215bccc7c1b1ff'
+
+        const lang = 'language=en-US'
+
+        const genre_list = 'genre/movie/list'
+
+        const query1 = feature+genre_list+'?'+api_key+'&'+lang
+          
+          axios.get(query1)
+          .then(res => {
+                setGenres(res.data.genres)
+          })
+          .catch(function (error) {
+              console.error(error);
+          });
+    }, [genres])
 
     return(
         <div className={styles.Container}>
@@ -211,9 +80,9 @@ export const LandingPage = ({history, ...props}) =>{
             <div className={styles.MoviesContainer}>
                 
                 <Suspense fallback={<h2>Loading...</h2>} >
-                {allMovies.map(all =>{
+                {genres.map(genre =>{
                         return(
-                            <MovieView movies={all.movies} category={all.category} />   
+                            <MovieView key={genre.id} id={genre.id} category={genre.name} />   
                     )})
                 }
                 </Suspense>

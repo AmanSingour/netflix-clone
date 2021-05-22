@@ -12,6 +12,7 @@
   background-size: cover;
   background-position: center;
   padding-top: 10%;
+  padding-bottom: 2%;
   color: #ffffff;
 }
 
@@ -61,8 +62,21 @@
   color: #ffffff;
 }
 
+.Container .Hero::before {
+  overflow: hidden;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  position: absolute;
+  z-index: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.9)));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+}
+
 .Container .MoviesContainer {
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .center, .Container .Hero, .Container .Hero .MainCopy, .Container .Hero .Form {
@@ -78,15 +92,22 @@
 
 @media screen and (max-width: 480px) {
   .Hero {
+    overflow: hidden;
     height: 80vh !important;
-    padding: 30% 1% !important;
+    padding: 30% 0 !important;
     vertical-align: middle;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .Hero * {
+    z-index: 1;
+  }
   .Hero .MainCopy h1 {
     font-size: 10vw !important;
+  }
+  .Hero .Form p {
+    padding: 0 2%;
   }
   .Hero .Form div {
     width: 100% !important;
