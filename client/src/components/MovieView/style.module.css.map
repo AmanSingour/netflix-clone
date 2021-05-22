@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEA,AAAA,WAAW,CAAA;EAEP,MAAM,EAAE,MAAM;CAejB;;AAjBD,AAII,WAJO,CAIP,EAAE,CAAA;EACE,WAAW,EAAE,oBAAoB;EACjC,YAAY,EAAE,IAAI;EAClB,cAAc,EAAE,KAAK;CACxB;;AARL,AAUI,WAVO,CAUP,gBAAgB,CAAA;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,eAAe,EAAE,aAAa;CAEjC;;AAKL,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAE/B,AACI,WADO,CACP,gBAAgB,CAAA;IACZ,OAAO,EAAE,IAAI;IACb,cAAc,EAAE,GAAG;IACnB,eAAe,EAAE,aAAa;GACjC",
     "sources": [
-        "style.module.scss"
+        "style.module.scss",
+        "../../utils/theme/_breakpoints.scss"
     ],
     "names": [],
     "file": "style.module.css"

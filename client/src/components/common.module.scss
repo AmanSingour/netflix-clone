@@ -1,0 +1,17 @@
+
+.inner-container{
+    @extend .center;
+    width: 70%;
+}
+
+.center{
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.vertical-align{
+    vertical-align: middle;
+    padding: 30% 0 ;
+}

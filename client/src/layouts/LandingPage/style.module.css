@@ -3,7 +3,7 @@
   height: 100%;
 }
 
-.Hero {
+.Container .Hero {
   display: block;
   height: 100vh;
   background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/11c803d4-06f3-467e-91f7-0560ce15a396/0eceea79-5607-407a-ae10-52f26872d601/IN-en-20210517-popsignuptwoweeks-perspective_alpha_website_small.jpg");
@@ -15,11 +15,19 @@
   color: #ffffff;
 }
 
-.Hero .MainCopy {
+.Container .Hero .MainCopy {
+  padding-top: 2%;
   text-align: center;
+  vertical-align: middle;
+  width: 75%;
 }
 
-.Hero .Form {
+.Container .Hero .MainCopy h1 {
+  font-size: 6vw;
+  letter-spacing: 2px;
+}
+
+.Container .Hero .Form {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,35 +36,36 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 2rem 0.5rem;
 }
 
-.Hero .Form div {
+.Container .Hero .Form div {
   width: 70%;
 }
 
-.Hero .Form div input {
-  height: 3.5rem;
+.Container .Hero .Form div input {
+  height: 4.5rem;
   width: 60%;
   padding: 0 0.7rem;
   border-radius: 3px 0 0 3px;
   background-color: #fff;
   border: 0;
   outline: none;
-  -webkit-border-radius: 3px 0 0 3px;
-  -moz-border-radius: 3px 0 0 3px;
-  -ms-border-radius: 3px 0 0 3px;
-  -o-border-radius: 3px 0 0 3px;
 }
 
-.Hero .Form div button {
-  height: 100%;
+.Container .Hero .Form div button {
+  height: 4.5rem;
   background-color: #E53D36;
   border: 0;
   padding: 1rem;
   color: #ffffff;
 }
 
-.center, .Hero, .Hero .Form {
+.Container .MoviesContainer {
+  padding: 2rem 0;
+}
+
+.center, .Container .Hero, .Container .Hero .MainCopy, .Container .Hero .Form {
   margin: 0 auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -68,8 +77,29 @@
 }
 
 @media screen and (max-width: 480px) {
-  .Form button {
-    background-color: #000000;
+  .Hero {
+    height: 80vh !important;
+    padding: 30% 1% !important;
+    vertical-align: middle;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .Hero .MainCopy h1 {
+    font-size: 10vw !important;
+  }
+  .Hero .Form div {
+    width: 100% !important;
+    height: 50% !important;
+  }
+  .Hero .Form div input {
+    height: 3rem !important;
+    width: 90% !important;
+  }
+  .Hero .Form div button {
+    height: 3rem !important;
+    padding: 0.5rem 0.9rem !important;
+    margin-top: 1rem;
   }
 }
 /*# sourceMappingURL=style.module.css.map */

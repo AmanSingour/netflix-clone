@@ -1,0 +1,52 @@
+@import '../../utils//theme//colors';
+@import '../../utils/theme/breakpoints';
+
+.CardContainer{
+    margin: 1rem;
+    width: 20vw;
+    min-width: 20rem;
+    padding-bottom: 0 !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position-y: -2rem !important;
+
+    .Card{
+        border: none;
+        background: linear-gradient(rgba(#000000, 0.0), rgba(#000000, 0.5), rgba(#000000, 0.9 ), #000000);
+    }
+
+    .CardImg{
+        height: 10rem;
+        background: none;
+    }
+
+    .CardBody{
+        color: $text-color;
+
+        p{
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+        }
+        
+    }
+
+    .CardFooter{
+        color: $muted-color;
+        background: #000000;
+    }
+}
+
+//* MOBILE BRAKEPONT...
+@media screen and (max-width: $breakpoint-mobile) {
+    .CardContainer{
+        margin: 1rem;
+        height: 100%;
+        width: 30vw;
+        min-width: 15rem !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center;
+    }
+}

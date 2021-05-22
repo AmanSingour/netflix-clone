@@ -7,14 +7,26 @@ import Routes from '../routes'
 import styles from './style.module.css'
 
 const App = (props) =>{
+
+    const [navbg, setNavbg] = React.useState("none")
+
+    const handleScroll = () =>{
+        setNavbg(window.scrollY > 20 ? "#000000" : "none")    
+    }
+
+
+    window.addEventListener("scroll", handleScroll)
+
     return(
         <div className={styles.Container}>
             <Router history={history}r>
-                <header>
+                <header style={{background:navbg}}>
                     <img aria-label="logo" width='100' src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="Netflix Clone"/>
                     <button aria-label="login">Login</button>
                 </header>
-                <Routes />
+                <div>
+                    <Routes />
+                </div>  
                 <footer>
                     <p>Designed with ❤️ by Aman Singour</p>
                 </footer>
