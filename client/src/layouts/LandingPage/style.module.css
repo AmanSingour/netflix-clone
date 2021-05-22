@@ -100,9 +100,6 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .Hero * {
-    z-index: 1;
-  }
   .Hero .MainCopy h1 {
     font-size: 10vw !important;
   }
