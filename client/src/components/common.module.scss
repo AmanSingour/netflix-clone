@@ -1,3 +1,5 @@
+@import '../utils/theme/colors';
+@import '../utils/theme/breakpoints';
 
 .inner-container{
     @extend .center;
@@ -14,4 +16,8 @@
 .vertical-align{
     vertical-align: middle;
     padding: 30% 0 ;
+}
+
+.align-end{
+    
 }

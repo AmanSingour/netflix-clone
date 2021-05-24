@@ -6,6 +6,7 @@ export const _routes = {
     FAVMOVIES: '/fav',
     WATCHED: '/watched',
     PROFILE: '/profile',
+    LOGOUT: '/logout'
 }
 
 export default _routes

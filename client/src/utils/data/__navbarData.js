@@ -2,19 +2,34 @@ import { _routes } from "./__routesData";
 
 export const _navData = [
     {
-        lable: 'Home',
+        label: 'Home',
         title: 'Netflix Clone',
         path: _routes.HOME,
     },
     {
-        lable: 'Favorite',
+        label: 'Favorite',
         title: 'Favorite Movies',
         path: _routes.FAVMOVIES,
     },
     {
-        lable: 'Watched',
+        label: 'Watched',
         title: 'Watched Movies',
         path: _routes.WATCHED,
+    },
+    {
+        label: 'Profile',
+        tabs: [
+            {
+                label: 'My Profile',
+                title: 'Profile',
+                path: _routes.PROFILE,
+            },
+            {
+                label: 'Logout',
+                title: 'Logout',
+                path: _routes.LOGOUT,
+            },
+        ]
     }
 ]
 

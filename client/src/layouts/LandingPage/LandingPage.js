@@ -17,6 +17,8 @@ export const LandingPage = ({history, ...props}) =>{
 
     const [genres, setGenres] = React.useState([])
 
+    const [loading, setLoading] = React.useState(true)
+
     //? GETTING ALL MOVIES FROM STORE STATE...
     var allMovies = useSelector(state => state.movies)    
 
@@ -50,15 +52,20 @@ export const LandingPage = ({history, ...props}) =>{
         const genre_list = 'genre/movie/list'
 
         const query1 = feature+genre_list+'?'+api_key+'&'+lang
-          
+        
+        if(loading){
           axios.get(query1)
           .then(res => {
                 setGenres(res.data.genres)
           })
+          .then(
+              setLoading(false)
+          )
           .catch(function (error) {
               console.error(error);
           });
-    }, [genres])
+        }
+    }, [genres, loading])
 
     return(
         <div className={styles.Container}>

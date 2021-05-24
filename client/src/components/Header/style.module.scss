@@ -1,0 +1,51 @@
+@import '../common.module.scss';
+
+
+.Navbar{
+    z-index: 5;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 1rem 2rem;
+    position: fixed;
+    vertical-align: middle;
+    background: rgba($color: #000000, $alpha: 0.5);
+
+    .Brand{
+        margin: auto 2rem;
+        flex: 2;
+        text-align: start;  
+        color: $primary-color;
+        cursor: pointer;
+    }
+
+    .Collapse{
+        margin-left: 2rem;
+        justify-content: end;
+        ul li{
+            margin: 0 0.5rem;
+            list-style: none;
+            display: inline-flex;
+            cursor: pointer;
+        }
+    }
+}
+
+//* MOBILE BREAKPOINT
+@media screen and (max-width: $breakpoint-mobile){
+    .Navbar{
+        flex-direction: column;
+        text-align: start;
+        padding: 1rem 0.2rem;
+        .Collapse{
+            justify-content: start;
+            margin: 0;
+            margin-top: 1rem;
+            width: 100%;
+            ul li{
+                margin-left: 0;
+                display: list-item;
+            }
+        }
+    }
+}

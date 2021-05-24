@@ -1,3 +1,5 @@
+import { Typography } from '@material-ui/core'
+import { Skeleton } from '@material-ui/lab'
 import axios from 'axios'
 import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
@@ -10,6 +12,8 @@ export const MovieView = ({category, id, ...props}) =>{
 
     const [movies, setMovies] = React.useState([])
 
+    const [loading, setLoading] = React.useState(true)
+
 
     const feature = 'https://api.themoviedb.org/3/'
 
@@ -21,16 +25,23 @@ export const MovieView = ({category, id, ...props}) =>{
 
     React.useEffect(() => {
         const query2 = feature+disc_movie+'?'+api_key+'&'+with_genre+id
-        axios.get(query2)
+        if(loading){
+            axios.get(query2)
             .then(res => {
                 setMovies(res.data.results)    
             })
+            .then( setLoading(false) )
             .catch(err => console.log(err))
-    }, [movies, id])
+        }
+    }, [movies, id, loading])
     
     return(
         <div className={styles.MoviesGrid}>
-            <div><h4>{category}</h4></div>
+            <div>
+                <Typography variant="h4">
+                   {loading? <Skeleton /> : <h4>{category}</h4>}
+                </Typography>
+            </div>
             <ScrollContainer 
                 className={styles.ScrollContainer}
                 horizontal

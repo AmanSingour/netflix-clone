@@ -12,3 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar-dark .navbar-brand{
+  color: #E53D36 !important;
+  cursor: pointer;
+}
+
+.navbar{
+  background: rgba(0, 0, 0, 0.5) !important;
+}

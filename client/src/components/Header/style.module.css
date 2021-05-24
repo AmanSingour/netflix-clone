@@ -1,1 +1,90 @@
-/* No CSS *//*# sourceMappingURL=style.module.css.map */
+.inner-container {
+  width: 70%;
+}
+
+.center, .inner-container {
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.vertical-align {
+  vertical-align: middle;
+  padding: 30% 0;
+}
+
+.MrAuto {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.Navbar {
+  z-index: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  padding: 1rem 2rem;
+  position: fixed;
+  vertical-align: middle;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.Navbar .Brand {
+  margin: auto 2rem;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  text-align: start;
+  color: #E53D36;
+  cursor: pointer;
+}
+
+.Navbar .Collapse {
+  margin-left: 2rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.Navbar .Collapse ul li {
+  margin: 0 0.5rem;
+  list-style: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .Navbar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: start;
+    padding: 1rem 0.2rem;
+  }
+  .Navbar .Collapse {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    margin: 0;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  .Navbar .Collapse ul li {
+    margin-left: 0;
+    display: list-item;
+  }
+}
+/*# sourceMappingURL=style.module.css.map */
