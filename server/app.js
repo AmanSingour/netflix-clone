@@ -6,13 +6,15 @@
                 Authorized user can add movies to watched list.
     __Author : Aman Singour
     __Started : 18 May 2021
-    __Ended : __ May 2021
+    __Ended : 26 May 2021
 /*/
 
 const express = require("express")
 const connectDB = require('./config/db')
 const bodyParser = require('body-parser')
 const userApiRoutes = require('./routes/api/users')
+
+const cors = require('cors')
 
 const favMovieApiRoutes = require('./routes/api/fav')
 
@@ -25,6 +27,9 @@ app.use(bodyParser.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//* CORS...
+app.use(cors({ origin: true, credentials: true }))
 
 //* USER API ROUTE
 app.use('/api/user', userApiRoutes)

@@ -7,15 +7,18 @@ const User = require('../../models/User')
 router.get('/test', (req, res) => res.send('user route testing!'))
 
 //! @route GET api/user
-//? @description get all users
+//? @desc get all users
+// @access public
 router.get('/', (req, res) =>{
     User.find()
-         .then(users => res.status(423).json(users))
+         .then(users => res.status(200).json({msg:users}))
+         .catch(err => res.status(404).json({userNotFound: err.message}))
+
      //res.status(423).json({msg: 'Not accessible!'})
 })
 
 //! @route GET api/user/:id
-//? @description get user by id
+//? @desc get user by id
 router.get('/:id', (req, res) =>{
     User.findById(req.params.id)
         .then(user => res.json(user))
@@ -23,7 +26,7 @@ router.get('/:id', (req, res) =>{
 })
 
 //! @route POST api/user/login
-//? @description Create new user
+//? @desc Create new user
 router.post('/login', (req, res) =>{
     User.findOne({ email: req.body.email})
         .then(user => {
@@ -39,7 +42,8 @@ router.post('/login', (req, res) =>{
 })
 
 //! @route POST api/user/signup
-//? @description Create new user
+//? @desc Create new user
+// @access public
 router.post('/signup', (req, res) =>{
 
     var newUser = new User()
