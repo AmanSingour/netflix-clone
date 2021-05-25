@@ -1,5 +1,3 @@
-import { Typography } from '@material-ui/core'
-import { Skeleton } from '@material-ui/lab'
 import axios from 'axios'
 import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
@@ -24,22 +22,19 @@ export const MovieView = ({category, id, ...props}) =>{
     React.useEffect(() => {
         const disc_movie = FEATURE.disc_movie
         const query = BASEURL+disc_movie.QUERY+KeyWithLang+disc_movie.QUERY_STRING.WITH_GENRE+id
-        if(loading){
+
             axios.get(query)
             .then(res => {
-                setMovies(res.data.results)    
+                setMovies(res.data.results)
+                setLoading(false)
             })
-            .then( setLoading(false) )
             .catch(err => console.log(err))
-        }
-    }, [movies, id, loading])
+    }, [])
     
     return(
         <div className={styles.MoviesGrid}>
             <div>
-                <Typography variant="h4">
-                   {loading? <Skeleton /> : <h4>{category}</h4>}
-                </Typography>
+                {loading? 'Loading...' : <h4>{category}</h4>}
             </div>
             <ScrollContainer 
                 className={styles.ScrollContainer}
