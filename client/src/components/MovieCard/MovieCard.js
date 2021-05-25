@@ -1,6 +1,9 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
+//* IMPORTING ICONS...
+import { AiOutlineHeart, AiTwotoneHeart } from 'react-icons/ai'
+
 //* STYLES IMPORT...
 import styles from './style.module.css'
 
@@ -8,13 +11,18 @@ export const MovieCard = ({id, title, vote_average, poster_path, overview, ...pr
 
     const [_id, setId] = React.useState(id)
 
+    const [fav, setFav] = React.useState(false)
+
     return(
         <div 
             id={_id}
             className={styles.CardContainer} 
             style={{background:`url(https://image.tmdb.org/t/p/w780${poster_path})`}}
-        >
+        >   
             <Card className={styles.Card}>
+                <Card.Header>
+                    <span style={{fontSize:"2em"}} onClick={()=>setFav(!fav)}>{fav? <AiTwotoneHeart /> :<AiOutlineHeart />}</span>
+                </Card.Header>
                 <Card.Body className={styles.CardBody}>
                 {/*
                     <div className={styles.CardImg}></div>
