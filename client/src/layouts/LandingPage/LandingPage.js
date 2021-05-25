@@ -26,6 +26,8 @@ export const LandingPage = ({history, ...props}) =>{
 
     const [loading, setLoading] = React.useState(true)
 
+    const [email, setEmail] = React.useState('')
+
     React.useEffect(() => {
 
         const query = BASEURL+FEATURE.genre_list.QUERY+KeyWithLang
@@ -54,8 +56,10 @@ export const LandingPage = ({history, ...props}) =>{
                 <div className={styles.Form} >
                     <p>Ready to watch? Enter your email to create or restart your membership.</p>
                     <div>
-                        <input type="email" placeholder="Email address" />
-                        <button type="submit" >{`Get Started`}</button>
+                        <form onSubmit={(e)=> e.preventDefault()}>
+                            <input type="email" placeholder="Email address" onChange={(e)=>setEmail(e.target.value)} value={email} />
+                            <button type="submit" onClick={()=>history.push(`/signup/${email}`)}>{`Get Started`}</button>
+                        </form>
                     </div>
                 </div>
             </div>
