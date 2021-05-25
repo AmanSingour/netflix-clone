@@ -3,6 +3,13 @@ import React, { lazy, Suspense } from 'react'
 import { useSelector } from 'react-redux'
 import { withRouter } from 'react-router'
 
+//* IMPORTING TMDB API ROUTES...
+import { 
+    BASEURL, 
+    FEATURE, 
+    KeyWithLang 
+} from '../../services/api/tmdb'
+
 //* CSS STYLE...
 import styles from './style.module.css'
 
@@ -19,42 +26,12 @@ export const LandingPage = ({history, ...props}) =>{
 
     const [loading, setLoading] = React.useState(true)
 
-    //? GETTING ALL MOVIES FROM STORE STATE...
-    var allMovies = useSelector(state => state.movies)    
-
-    //? SAMPLE MOVIES DATA...
-    /*
-    React.useEffect(() => {
-        var allUsers = JSON.parse(localStorage.getItem('allUsers'))
-        var index = allUsers.findIndex(user=> user!=null && user.email===email)
-        if(index<0) alert('user not found!')
-        else{
-
-            if(allUsers[index].password !== password){
-                alert('Wrong password')
-            }else{
-                //Redirect to dashboard
-            }
-        }
-        console.log(index)
-        
-    })
-    */
-
     React.useEffect(() => {
 
-        const feature = 'https://api.themoviedb.org/3/'
-
-        const api_key = 'api_key=d01559b3aab4074f1c215bccc7c1b1ff'
-
-        const lang = 'language=en-US'
-
-        const genre_list = 'genre/movie/list'
-
-        const query1 = feature+genre_list+'?'+api_key+'&'+lang
+        const query = BASEURL+FEATURE.genre_list.QUERY+KeyWithLang
         
         if(loading){
-          axios.get(query1)
+          axios.get(query)
           .then(res => {
                 setGenres(res.data.genres)
           })
