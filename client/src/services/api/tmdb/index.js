@@ -6,8 +6,12 @@ import _key from "./key"
 export const BASEURL = 'https://api.themoviedb.org/3/'
 
 //? LANGUAGE PARAM...
-export const lang = '&language=en-US'
+export const lang = '&language=hi'
 
-export {default as FEATURE} from './features'
+export const region = '&region=IN'
 
-export const KeyWithLang = _key+lang
+export { default as FEATURE } from './features'
+
+export const KeyWithLang = _key + lang
+
+export const KeyWithRegion = _key + region
