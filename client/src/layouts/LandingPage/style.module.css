@@ -40,6 +40,10 @@
   padding: 2rem 0.5rem;
 }
 
+.Container .Hero .Form * {
+  z-index: 1;
+}
+
 .Container .Hero .Form div {
   width: 70%;
 }
@@ -62,7 +66,7 @@
   color: #ffffff;
 }
 
-.Container .Hero::before {
+.Container .Hero::after {
   overflow: hidden;
   content: '';
   top: 0;
@@ -70,7 +74,6 @@
   width: 100%;
   height: inherit;
   position: absolute;
-  z-index: 0;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.9)));
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
 }

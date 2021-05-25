@@ -1,3 +1,23 @@
+.inner-container {
+  width: 70%;
+}
+
+.center, .inner-container {
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.vertical-align {
+  vertical-align: middle;
+  padding: 30% 0;
+}
+
 .CardContainer {
   margin: 1rem;
   width: 25vw;

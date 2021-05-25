@@ -1,1 +1,48 @@
-/* No CSS *//*# sourceMappingURL=style.module.css.map */
+.inner-container {
+  width: 70%;
+}
+
+.center, .inner-container, .Container, .Container .Form {
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.vertical-center, .Container .Form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.vertical-align {
+  vertical-align: middle;
+  padding: 30% 0;
+}
+
+.Container {
+  height: 90vh;
+  display: table;
+}
+
+.Container .Form {
+  width: 30%;
+  text-align: left;
+}
+
+.Container .Form .Button {
+  width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .Container .Form {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=style.module.css.map */

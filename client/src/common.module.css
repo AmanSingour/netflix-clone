@@ -13,6 +13,14 @@
   text-align: center;
 }
 
+.vertical-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
 .vertical-align {
   vertical-align: middle;
   padding: 30% 0;

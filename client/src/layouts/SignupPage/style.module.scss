@@ -1,0 +1,26 @@
+@import '../../common.module.scss';
+
+.Container {
+
+    @extend .center;
+    height: 90vh;
+    display: table;
+
+    .Form {
+        @extend .center;
+        @extend .vertical-center;
+        width: 30%;
+        text-align: left;
+        .Button {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .Container {
+        .Form {
+            width: 80%;
+        }
+    }
+}

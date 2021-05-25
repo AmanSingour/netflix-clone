@@ -12,13 +12,13 @@ import PublicRoute from './PublicRoute'
 const Routes = () =>{
     return(
         <Switch >
-            //? HOME/LANDING PAGE ROUTE
+            {/* HOME/LANDING PAGE ROUTE */}
             <Route exact path={_routes.HOME} component={LandingPage} />
             
             
-            //? ALL PUBLIC ROUTES CAN ACCESS WITHOUT LOGIN
+            {/* ALL PUBLIC ROUTES CAN ACCESS WITHOUT LOGIN */}
             <PublicRoute path={_routes.LOGIN} restricted component={PageNotFound} />
-            <PublicRoute path={_routes.SIGNUP} restricted component={SignupPage} />
+            <PublicRoute path={[_routes.SIGNUP+'/:em',_routes.SIGNUP]} strict restricted component={SignupPage} />
 
             {/*
             //? ALL PRIVATE ROUTES CAN ONLY ACCESS AFTER LOGIN
