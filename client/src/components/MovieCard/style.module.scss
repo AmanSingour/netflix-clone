@@ -3,11 +3,10 @@
 
 .CardContainer{
     margin: 1rem;
-    width: 20vw;
+    width: 25vw;
     min-width: 15rem;
     min-height: 20rem;
     border-radius: 2px;
-    padding-top: 3rem;
     padding-bottom: 0 !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
@@ -16,11 +15,40 @@
     ::after{
         background: #000;
     }
+
+    .Overview{
+        display: none;
+        strong{
+            vertical-align: text-bottom;
+            display: -webkit-box;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+        }
+    }
         
     .Card{
+        z-index: 1;
         height: 100%;
         border: none;
-        background: linear-gradient(rgba(#000000, 0.0), rgba(#000000, 0.5), rgba(#000000, 0.9 ), #000000);
+        background: linear-gradient(rgba(#000000, 0.0), rgba(#000000, 0.3), rgba(#000000, 0.9 ), #000000);
+    }
+
+    .Card:hover{
+
+        background: linear-gradient(rgba(#000000, 0.5), rgba(#000000, 0.9 ), #000000);
+
+        .CardFooter{
+            display: none;
+        }
+        .Overview{
+            display: block;
+        }
+    }
+
+    .CardHeader{
+        text-align: right;
+        border: none !important;
     }
 
     .CardImg{
@@ -29,18 +57,10 @@
     }
 
     .CardBody{
-
-        p{
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;  
-            overflow: hidden;
-        }
         
     }
 
     .CardFooter{
-        
         color: $text-color;
         small{
             color: $muted-color;

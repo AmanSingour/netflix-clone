@@ -1,10 +1,9 @@
 .CardContainer {
   margin: 1rem;
-  width: 20vw;
+  width: 25vw;
   min-width: 15rem;
   min-height: 20rem;
   border-radius: 2px;
-  padding-top: 3rem;
   padding-bottom: 0 !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -15,11 +14,42 @@
   background: #000;
 }
 
+.CardContainer .Overview {
+  display: none;
+}
+
+.CardContainer .Overview strong {
+  vertical-align: text-bottom;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .CardContainer .Card {
+  z-index: 1;
   height: 100%;
   border: none;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0.5)), color-stop(rgba(0, 0, 0, 0.9)), to(#000000));
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9), #000000);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0.3)), color-stop(rgba(0, 0, 0, 0.9)), to(#000000));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9), #000000);
+}
+
+.CardContainer .Card:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), color-stop(rgba(0, 0, 0, 0.9)), to(#000000));
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9), #000000);
+}
+
+.CardContainer .Card:hover .CardFooter {
+  display: none;
+}
+
+.CardContainer .Card:hover .Overview {
+  display: block;
+}
+
+.CardContainer .CardHeader {
+  text-align: right;
+  border: none !important;
 }
 
 .CardContainer .CardImg {
@@ -27,13 +57,6 @@
   height: -moz-max-content;
   height: max-content;
   background: none;
-}
-
-.CardContainer .CardBody p {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .CardContainer .CardFooter {

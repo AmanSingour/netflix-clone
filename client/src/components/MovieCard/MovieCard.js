@@ -20,10 +20,12 @@ export const MovieCard = ({id, title, vote_average, poster_path, overview, ...pr
             style={{background:`url(https://image.tmdb.org/t/p/w780${poster_path})`}}
         >   
             <Card className={styles.Card}>
-                <Card.Header>
+                <Card.Header className={styles.CardHeader}>
                     <span style={{fontSize:"2em"}} onClick={()=>setFav(!fav)}>{fav? <AiTwotoneHeart /> :<AiOutlineHeart />}</span>
                 </Card.Header>
                 <Card.Body className={styles.CardBody}>
+
+                    <Card.Text className={styles.Overview}><strong>{overview}</strong></Card.Text>
                 {/*
                     <div className={styles.CardImg}></div>
                     <Card.Title className={styles.CardTitle}><h3>{title}</h3></Card.Title>
