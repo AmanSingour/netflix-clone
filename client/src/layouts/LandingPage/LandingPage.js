@@ -7,7 +7,7 @@ import { withRouter } from 'react-router'
 import styles from './style.module.css'
 
 //* LAZY COMPONENTS...
-const MovieView  = lazy(() => import('../../components/MovieView/MovieView'))
+const MovieView  = lazy(() => import('../MovieView/MovieView'))
 
 
 //* THIS IS THE LANDING PAGE COMPONENT 

@@ -3,7 +3,7 @@ import { Skeleton } from '@material-ui/lab'
 import axios from 'axios'
 import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
-import MovieCard from '../MovieCard/MovieCard'
+import {MovieCard} from '../../components'
 
 //* IMPORTING STYLES...
 import styles from './style.module.css'

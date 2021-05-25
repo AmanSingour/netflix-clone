@@ -77,6 +77,7 @@
 
 .Container .MoviesContainer {
   padding: 1rem 0;
+  width: 100%;
 }
 
 .center, .Container .Hero, .Container .Hero .MainCopy, .Container .Hero .Form {
