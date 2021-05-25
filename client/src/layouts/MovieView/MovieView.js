@@ -5,6 +5,13 @@ import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import {MovieCard} from '../../components'
 
+//* IMPORTING TMDB API ROUTES...
+import { 
+    BASEURL,
+    FEATURE,
+    KeyWithLang,
+} from '../../services/api/tmdb'
+
 //* IMPORTING STYLES...
 import styles from './style.module.css'
 
@@ -14,19 +21,11 @@ export const MovieView = ({category, id, ...props}) =>{
 
     const [loading, setLoading] = React.useState(true)
 
-
-    const feature = 'https://api.themoviedb.org/3/'
-
-    const disc_movie = 'discover/movie'
-
-    const with_genre = '&with_genres='
-
-    const api_key = 'api_key=d01559b3aab4074f1c215bccc7c1b1ff'
-
     React.useEffect(() => {
-        const query2 = feature+disc_movie+'?'+api_key+'&'+with_genre+id
+        const disc_movie = FEATURE.disc_movie
+        const query = BASEURL+disc_movie.QUERY+KeyWithLang+disc_movie.QUERY_STRING.WITH_GENRE+id
         if(loading){
-            axios.get(query2)
+            axios.get(query)
             .then(res => {
                 setMovies(res.data.results)    
             })
