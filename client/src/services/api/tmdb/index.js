@@ -8,6 +8,6 @@ export const BASEURL = 'https://api.themoviedb.org/3/'
 //? LANGUAGE PARAM...
 export const lang = '&language=en-US'
 
-export {feature as FEATURE} from './features'
+export {default as FEATURE} from './features'
 
 export const KeyWithLang = _key+lang
