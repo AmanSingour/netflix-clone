@@ -3,6 +3,9 @@ import React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import {MovieCard} from '../../components'
 
+//* REACT SKELETON FOR LOADING STATE...
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+
 //* IMPORTING TMDB API ROUTES...
 import { 
     BASEURL,
@@ -33,20 +36,24 @@ export const MovieView = ({category, id, ...props}) =>{
     
     return(
         <div className={styles.MoviesGrid}>
-            <div>
-                {loading? 'Loading...' : <h4>{category}</h4>}
-            </div>
-            <ScrollContainer 
-                className={styles.ScrollContainer}
-                horizontal
-                hideScrollbars
-                activationDistance={10}
-            >
-            {movies.map(movie => {
-                return(
-                    <MovieCard key={movie.id} {...movie} />
-                )})}
-            </ScrollContainer>
+            <SkeletonTheme color="#0e0e0e" highlightColor="#1e1e1e">
+            
+                <div>
+                    <h4>{category || <Skeleton width={200} />}</h4>
+                </div>
+                <ScrollContainer 
+                    className={styles.ScrollContainer}
+                    horizontal
+                    hideScrollbars
+                    activationDistance={10}
+                >
+                {movies.map(movie => {
+                    return(
+                        <MovieCard key={movie.id} {...movie} />
+                    )})}
+                </ScrollContainer>
+
+            </SkeletonTheme>
         </div>    
     )
 }
