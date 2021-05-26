@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { useParams } from 'react-router'
+import { useParams, withRouter } from 'react-router'
 import { addNote } from '../../services/actions/note/note-action'
 import { BASEURL } from '../../services/api/server'
 
@@ -138,4 +138,4 @@ export const SignupPage = ({ history, ...props }) => {
     )
 }
 
-export default SignupPage
+export default withRouter(SignupPage)

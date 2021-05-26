@@ -8,7 +8,7 @@ import { _routes } from '../utils/data'
 
 export const PublicRoute = ({component: Component, restricted, ...rest}) =>{
     
-    const isLoggedIn = useSelector(state => state.user.isLoggedIn)
+    const isLoggedIn = useSelector(state => state.user.loggedIn)
     
     return(
 

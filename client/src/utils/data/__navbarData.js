@@ -1,6 +1,6 @@
 import { _routes } from "./__routesData";
 
-export const _navData = [
+export const _navWithAuth = [
     {
         label: 'Home',
         title: 'Netflix Clone',
@@ -30,6 +30,14 @@ export const _navData = [
                 path: _routes.LOGOUT,
             },
         ]
+    }
+]
+
+export const _navData = [
+    {
+        label: 'Login',
+        title: 'Login',
+        path: _routes.LOGIN,
     }
 ]
 

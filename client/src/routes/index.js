@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router'
 import { 
     LandingPage, 
+    LoginPage, 
     PageNotFound, 
     SignupPage 
 } from '../layouts'
@@ -17,17 +18,17 @@ const Routes = () =>{
             
             
             {/* ALL PUBLIC ROUTES CAN ACCESS WITHOUT LOGIN */}
-            <PublicRoute path={_routes.LOGIN} restricted component={PageNotFound} />
+            <PublicRoute path={[_routes.LOGIN+'/:em',_routes.LOGIN]} restricted component={LoginPage} />
             <PublicRoute path={[_routes.SIGNUP+'/:em',_routes.SIGNUP]} strict restricted component={SignupPage} />
 
-            {/*
-            //? ALL PRIVATE ROUTES CAN ONLY ACCESS AFTER LOGIN
+            
+            {/* ALL PRIVATE ROUTES CAN ONLY ACCESS AFTER LOGIN */}
             <PrivateRoute path={_routes.DASHBOARD} component={PageNotFound} />
             <PrivateRoute path={_routes.FAVMOVIES} component={PageNotFound} />
             <PrivateRoute path={_routes.WATCHED} component={PageNotFound} />
             <PrivateRoute path={_routes.PROFILE} component={PageNotFound} />
             
-            */}
+            
             <Route component={PageNotFound} />
         </Switch>
     )

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useEffect } from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import { MovieCard } from '../../components'
 
@@ -13,11 +13,28 @@ import {
     KeyWithRegion,
 } from '../../services/api/tmdb'
 
+
+import { useDispatch, useSelector } from 'react-redux'
+
 //* IMPORTING STYLES...
 import styles from './style.module.css'
-import _key from '../../services/api/tmdb/key'
 
-export const MovieView = ({ category, id, ...props }) => {
+export const MovieView = () =>{
+
+    const {loggedIn} = useSelector(state => state.user)
+
+    const genres = useSelector(state => state.genres)
+
+    return(
+        <>
+            {genres.map(({id, name}) =>(
+                <MovieGrid key={id} id={id} genre={name} />
+            ))}
+        </>
+    )
+}
+
+const MovieGrid = ({ genre, id, ...props }) => {
 
     const [movies, setMovies] = React.useState([])
 
@@ -40,7 +57,7 @@ export const MovieView = ({ category, id, ...props }) => {
             <SkeletonTheme color="#0e0e0e" highlightColor="#1e1e1e">
 
                 <div>
-                    <h4>{category || <Skeleton width={200} />}</h4>
+                    <h4>{genre || <Skeleton width={200} />}</h4>
                 </div>
                 <ScrollContainer
                     className={styles.ScrollContainer}

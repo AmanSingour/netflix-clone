@@ -8,7 +8,7 @@ import {_routes} from '../utils/data'
 export const PrivateRoute = ({component: Component, ...rest}) =>{
 
     //? GETTING LOGIN STATE FROM REDUX STORE
-    const isLoggedIn = useSelector(state => state.user.isLoggedIn)
+    const isLoggedIn = useSelector(state => state.user.loggedIn)
 
     return(
 

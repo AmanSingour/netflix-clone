@@ -1,10 +1,12 @@
-export const noteReducer = (state = '', action) => {
+export const noteReducer = (state = [], action) => {
     switch (action.type) {
         case '@note/add':
-            return action.payload
+            return [action.payload].concat(state)
 
         case '@note/remove':
-            return ''
+            var newState = state
+            state.splice(action.payload, 1)
+            return newState
 
         default:
             return state

@@ -3,6 +3,7 @@ export const addNote = (note) => ({
     payload: note
 })
 
-export const removeNote = () => ({
+export const removeNote = (index) => ({
     type: '@note/remove',
+    payload: index
 })
