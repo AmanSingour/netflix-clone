@@ -58,16 +58,17 @@ export const LoginPage = ({ history, ...props }) => {
       .then((res) => {
         if (res.status === 200) {
           console.log(res.data.msg);
+          
           dispatch(addNote(res.data.msg));
           dispatch(doLogin(res.data.user));
         }
       })
       .catch((e) => {
-        console.log(e.response);
-        if (e.response.status === 400) dispatch(addNote(e.response.data.msg));
-        else dispatch(addNote(e.response.statusText));
+        if (e.response)
+          if (e.response.status === 400) dispatch(addNote(e.response.data.msg));
+          else dispatch(addNote(e.response.statusText));
+        else console.log(e);
       });
-
     event.preventDefault();
   };
 

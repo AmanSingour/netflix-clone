@@ -16,15 +16,20 @@ export const LandingPage = ({ history, ...props }) => {
 
     const [email, setEmail] = React.useState('')
 
+    const user = useSelector(state => state.user)
+
+    const loggedIn = user ? user.loggedIn : false;
+
     return (
         <div className={styles.Container}>
+        {!loggedIn &&
             <div className={styles.Hero}  >
                 <div className={styles.MainCopy} >
-                    <h1>Unlimited movies,<br></br> TV shows and more.</h1>
-                    <p>Watch anywhere. Cancel anytime.</p>
+                    <h1>Save your favorite movies,<br></br>TV shows and more.</h1>
+                    <p>Add anytime. remove anytime.</p>
                 </div>
                 <div className={styles.Form} >
-                    <p>Ready to watch? Enter your email to create or restart your membership.</p>
+                    <p>Ready to save favorites? Enter your email to create or login your account.</p>
                     <div>
                         <form onSubmit={(e) => e.preventDefault()}>
                             <input type="email" placeholder="Email address" onChange={(e) => setEmail(e.target.value)} value={email} />
@@ -34,11 +39,11 @@ export const LandingPage = ({ history, ...props }) => {
                 </div>
             </div>
 
-
+        }
             <div className={styles.MoviesContainer}>
 
                 <Suspense fallback={<h2>Loading...</h2>} >
-                    <MovieView  />
+                    <MovieView showFav={loggedIn} />
                 </Suspense>
 
             </div>

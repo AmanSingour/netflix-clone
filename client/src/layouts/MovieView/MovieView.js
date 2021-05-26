@@ -14,27 +14,27 @@ import {
 } from '../../services/api/tmdb'
 
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 //* IMPORTING STYLES...
 import styles from './style.module.css'
 
-export const MovieView = () =>{
+export const MovieView = ({showFav}) =>{
 
-    const {loggedIn} = useSelector(state => state.user)
+    const user = useSelector(state => state.user)
 
     const genres = useSelector(state => state.genres)
 
     return(
         <>
             {genres.map(({id, name}) =>(
-                <MovieGrid key={id} id={id} genre={name} />
+                <MovieGrid key={id} id={id} genre={name} showFav={showFav} />
             ))}
         </>
     )
 }
 
-const MovieGrid = ({ genre, id, ...props }) => {
+const MovieGrid = ({ genre, id, showFav, ...props }) => {
 
     const [movies, setMovies] = React.useState([])
 
@@ -67,7 +67,7 @@ const MovieGrid = ({ genre, id, ...props }) => {
                 >
                     {movies.map(movie => {
                         return (
-                            <MovieCard key={movie.id} {...movie} />
+                            <MovieCard showFav={showFav} key={movie.id} {...movie} />
                         )
                     })}
                 </ScrollContainer>

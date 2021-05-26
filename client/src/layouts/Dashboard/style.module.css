@@ -1,1 +1,127 @@
-/* No CSS *//*# sourceMappingURL=style.module.css.map */
+.Container {
+  width: 100vw;
+  height: 100%;
+}
+
+.Container .Hero {
+  display: block;
+  height: 100vh;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/11c803d4-06f3-467e-91f7-0560ce15a396/0eceea79-5607-407a-ae10-52f26872d601/IN-en-20210517-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+  -webkit-box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.7);
+          box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-position: center;
+  padding-top: 10%;
+  padding-bottom: 2%;
+  color: #ffffff;
+}
+
+.Container .Hero .MainCopy {
+  padding-top: 2%;
+  text-align: center;
+  vertical-align: middle;
+  width: 75%;
+}
+
+.Container .Hero .MainCopy h1 {
+  font-size: 6vw;
+  letter-spacing: 2px;
+}
+
+.Container .Hero .Form {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem 0.5rem;
+}
+
+.Container .Hero .Form * {
+  z-index: 1;
+}
+
+.Container .Hero .Form div {
+  width: 70%;
+}
+
+.Container .Hero .Form div input {
+  height: 4.5rem;
+  width: 60%;
+  padding: 0 0.7rem;
+  border-radius: 3px 0 0 3px;
+  background-color: #fff;
+  border: 0;
+  outline: none;
+}
+
+.Container .Hero .Form div button {
+  height: 4.5rem;
+  background-color: #E53D36;
+  border: 0;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.Container .Hero::after {
+  overflow: hidden;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  position: absolute;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.9)));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+}
+
+.Container .MoviesContainer {
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.center, .Container .Hero, .Container .Hero .MainCopy, .Container .Hero .Form {
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .Hero {
+    overflow: hidden;
+    height: 80vh !important;
+    padding: 30% 0 !important;
+    vertical-align: middle;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .Hero .MainCopy h1 {
+    font-size: 10vw !important;
+  }
+  .Hero .Form p {
+    padding: 0 2%;
+  }
+  .Hero .Form div {
+    width: 100% !important;
+    height: 50% !important;
+  }
+  .Hero .Form div input {
+    height: 3rem !important;
+    width: 90% !important;
+  }
+  .Hero .Form div button {
+    height: 3rem !important;
+    padding: 0.5rem 0.9rem !important;
+    margin-top: 1rem;
+  }
+}
+/*# sourceMappingURL=style.module.css.map */

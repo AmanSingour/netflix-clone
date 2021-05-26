@@ -1,1 +1,74 @@
-/* No CSS *//*# sourceMappingURL=style.module.css.map */
+.inner-container {
+  width: 70%;
+}
+
+.center, .inner-container, .Container .Heading {
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.vertical-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.vertical-align {
+  vertical-align: middle;
+  padding: 30% 0;
+}
+
+.Container {
+  padding-top: 5rem;
+  width: 100vw;
+  height: 100%;
+}
+
+.MoviesGrid {
+  margin: 2rem 0;
+}
+
+.MoviesGrid h4 {
+  font-family: 'Roboto', sans-serif;
+  padding-left: 1rem;
+  letter-spacing: 1.5px;
+}
+
+.MoviesGrid .ScrollContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.MoviesGrid .ScrollContainer .Card {
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .MoviesGrid .ScrollContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+/*# sourceMappingURL=style.module.css.map */
