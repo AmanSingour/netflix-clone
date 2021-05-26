@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { genreReducer } from './genreReducer'
+import { noteReducer } from './noteReducer'
 import { userReducer } from './userReducer'
 
 export const reducers = combineReducers({
@@ -8,4 +9,5 @@ export const reducers = combineReducers({
     genres: genreReducer,
     favMovies: [],
     watchedMovies: [],
+    note: noteReducer,
 })
