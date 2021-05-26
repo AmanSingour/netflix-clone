@@ -1,20 +1,23 @@
-export const userReducer = (state={loggedIn: false}, action) =>{
-    switch (action.type) {
-        case '@user/login':
-            var newState = {
-                user: action.payload,
-                loggedIn: true
-            }
-            return newState
+export const userReducer = (
+  state = { loggedIn: false, user: null },
+  action
+) => {
+  switch (action.type) {
+    case "USER_LOGIN":
+      return {
+        ...state,
+        user: action.payload,
+        loggedIn: true,
+      };
 
-        case '@user/logout':
-            newState = {
-                user: null,
-                loggedIn: false
-            }
-            return newState
-            
-        default:
-            return state
-    }
-}
+    case "USER_LOGOUT":
+      return {
+        ...state,
+        user: null,
+        loggedIn: false,
+      };
+
+    default:
+      return state;
+  }
+};

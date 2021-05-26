@@ -1,9 +1,9 @@
 export const addNote = (note) => ({
-    type: '@note/add',
-    payload: note
-})
+  type: "ADD_NOTE",
+  payload: note,
+});
 
 export const removeNote = (index) => ({
-    type: '@note/remove',
-    payload: index
-})
+  type: "REMOVE_NOTE",
+  payload: index,
+});

@@ -1,6 +1,6 @@
 export const genreReducer = (state=[], action) =>{
     switch (action.type) {
-        case '@movie/genre/add':
+        case 'ADD_GENRE':
             return action.payload
             
         default:

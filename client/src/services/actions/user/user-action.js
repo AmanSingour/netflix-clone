@@ -1,8 +1,8 @@
 export const doLogin = (user) => ({
-    type: '@user/login',
+    type: 'USER_LOGIN',
     payload: user
 })
 
 export const doLogout = () => ({
-    type: '@user/logout'
+    type: 'USER_LOGOUT'
 })

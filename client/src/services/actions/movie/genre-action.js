@@ -1,4 +1,4 @@
 export const addGenre = (genres) => ({
-    type: '@movie/genre/add',
+    type: 'ADD_GENRE',
     payload: genres
 })

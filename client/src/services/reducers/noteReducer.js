@@ -1,14 +1,15 @@
 export const noteReducer = (state = [], action) => {
-    switch (action.type) {
-        case '@note/add':
-            return [action.payload].concat(state)
+  let newState = [];
+  switch (action.type) {
+    case "ADD_NOTE":
+      return [action.payload, ...state];
 
-        case '@note/remove':
-            var newState = state
-            state.splice(action.payload, 1)
-            return newState
+    case "REMOVE_NOTE":
+      newState = [...state];
+      newState.splice(action.payload, 1);
+      return [...newState];
 
-        default:
-            return state
-    }
-}
+    default:
+      return state;
+  }
+};
