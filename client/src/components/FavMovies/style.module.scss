@@ -1,0 +1,33 @@
+@import '../../utils/theme/breakpoints';
+
+.MoviesGrid{
+
+    margin: 2rem 0;
+
+    h4{
+        font-family: 'Roboto', sans-serif;
+        padding-left: 1rem;
+        letter-spacing: 1.5px;
+    }
+
+    .ScrollContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+    
+}
+
+//* MOBILE BREAKPOINT...
+@media screen and (max-width: $breakpoint-mobile) {
+
+    .MoviesGrid{
+        .ScrollContainer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+}

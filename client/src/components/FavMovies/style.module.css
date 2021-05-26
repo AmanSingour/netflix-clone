@@ -1,1 +1,38 @@
-/* No CSS *//*# sourceMappingURL=style.module.css.map */
+.MoviesGrid {
+  margin: 2rem 0;
+}
+
+.MoviesGrid h4 {
+  font-family: 'Roboto', sans-serif;
+  padding-left: 1rem;
+  letter-spacing: 1.5px;
+}
+
+.MoviesGrid .ScrollContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media screen and (max-width: 480px) {
+  .MoviesGrid .ScrollContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+/*# sourceMappingURL=style.module.css.map */
