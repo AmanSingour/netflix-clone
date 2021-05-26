@@ -1,27 +1,31 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { Redirect, Route } from 'react-router'
+import React from "react";
+import { useSelector } from "react-redux";
+import { Redirect, Route } from "react-router";
 
-import { _routes } from '../utils/data'
+import { _routes } from "../utils/data";
 
 //* ALL PUBLIC ROUTES RENDER FROM HERE...
 
-export const PublicRoute = ({component: Component, restricted, ...rest}) =>{
-    
-    const isLoggedIn = useSelector(state => state.user.loggedIn)
-    
-    return(
+export const PublicRoute = ({ component: Component, restricted, ...rest }) => {
+  const user = useSelector((state) => state.user);
 
-        //? IF USER LOGGED IN AND SOME ONE TRY TO 
-        //? LOGIN AGAIN IT WILL REDIRECT T0 LOGIN PAGE
+  const loggedIn = user ? user.loggedIn : false;
 
-        <Route {...rest} render={props => (
-            isLoggedIn && restricted ?
-                    <Redirect to={_routes.DASHBOARD} />
-                : <Component {...props} />
-            )}
-        />
-    )
-}
+  return (
+    //? IF USER LOGGED IN AND SOME ONE TRY TO
+    //? LOGIN AGAIN IT WILL REDIRECT T0 LOGIN PAGE
 
-export default PublicRoute
+    <Route
+      {...rest}
+      render={(props) =>
+        loggedIn && restricted ? (
+          <Redirect to={_routes.DASHBOARD} />
+        ) : (
+          <Component {...props} />
+        )
+      }
+    />
+  );
+};
+
+export default PublicRoute;
