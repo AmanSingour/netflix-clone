@@ -13,7 +13,7 @@ import { BASEURL } from "../../services/api/server";
 //* STYLES IMPORT...
 import styles from "./style.module.css";
 
-export const MovieCard = ({
+export const MovieView = ({
   id,
   title,
   vote_average,
@@ -136,4 +136,4 @@ export const MovieCard = ({
   );
 };
 
-export default MovieCard;
+export default MovieView;

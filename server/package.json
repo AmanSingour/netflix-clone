@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "This is mern project",
   "main": "app.js",
+  "engines": {
+    "node": "10.x",
+    "npm": "6.14.11"
+  },
   "scripts": {
     "start": "node app.js",
     "app": "nodemon app.js",

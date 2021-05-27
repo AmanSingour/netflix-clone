@@ -9,13 +9,7 @@ router.get("/test", (req, res) => res.send("user route testing!"));
 //! @route GET api/user
 //? @desc get all users
 // @access public
-router.get("/", (req, res) => {
-  User.find()
-    .then((users) => res.status(200).json({ msg: users }))
-    .catch((err) => res.status(404).json({ userNotFound: err.message }));
-
-  //res.status(423).json({msg: 'Not accessible!'})
-});
+router.get("/", (req, res) => res.status(423).json({ msg: "Not accessible!" }));
 
 //! @route GET api/user/:id
 //? @desc get user by id

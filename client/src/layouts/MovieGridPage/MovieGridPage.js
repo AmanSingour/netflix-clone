@@ -19,7 +19,7 @@ import { useSelector } from 'react-redux'
 //* IMPORTING STYLES...
 import styles from './style.module.css'
 
-export const MovieView = ({showFav}) =>{
+export const MovieGridPage = ({showFav}) =>{
 
     const user = useSelector(state => state.user)
 
@@ -77,4 +77,4 @@ const MovieGrid = ({ genre, id, showFav, ...props }) => {
     )
 }
 
-export default MovieView
+export default MovieGridPage

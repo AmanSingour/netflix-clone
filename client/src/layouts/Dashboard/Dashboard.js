@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 import styles from "./style.module.css";
 
 //* LAZY COMPONENTS...
-const MovieView = lazy(() => import("../MovieView/MovieView"));
+const MovieGridPage = lazy(() => import("../MovieGridPage/MovieGridPage"));
 
 //* THIS IS THE DASHBOARD PAGE COMPONENT
 //* THIS WILL APPEAR FIRST WHEN USER OPEN APP
@@ -16,7 +16,7 @@ export const Dashboard = ({ history, ...props }) => {
     <div className={styles.Container}>
       <div className={styles.MoviesContainer}>
         <Suspense fallback={<h2>Loading...</h2>}>
-          <MovieView showFav={true} />
+          <MovieGridPage showFav={true} />
         </Suspense>
       </div>
     </div>
