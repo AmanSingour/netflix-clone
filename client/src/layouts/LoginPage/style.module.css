@@ -26,6 +26,10 @@
   padding: 30% 0;
 }
 
+.heading, .Container .Form .Heading {
+  border-bottom: 2px solid #E53D36;
+}
+
 .Container {
   height: 90vh;
   display: table;
@@ -34,6 +38,10 @@
 .Container .Form {
   width: 30%;
   text-align: left;
+}
+
+.Container .Form h2 {
+  font-family: 'Roboto', sans-serif;
 }
 
 .Container .Form .Button {

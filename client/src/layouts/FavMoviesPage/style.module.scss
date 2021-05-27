@@ -1,44 +1,48 @@
 @import '../../utils/theme/breakpoints';
 @import '../../common.module.scss';
 
-.Container{
+.Container {
     padding-top: 5rem;
-    width: 100vw;
-    height: 100%;
-    .Heading{
+    width      : 100vw;
+    height     : 100%;
+    min-height : 90vh;
+    .Heading {
         @extend .center;
+        @extend .heading;
     }
-}
 
-.MoviesGrid{
+    .Notfound {
+        height: 20px;
+        @extend .vertical-center;
+            text-align: center;
+    }
 
-    margin: 2rem 0;
-
-    h4{
-        font-family: 'Roboto', sans-serif;
-        padding-left: 1rem;
+    h4 {
+        font-family   : 'Roboto', sans-serif;
+        padding-left  : 1rem;
         letter-spacing: 1.5px;
     }
 
-    .ScrollContainer{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        
-        .Card{
+    .ScrollContainer {
+        display        : flex;
+        flex-wrap      : wrap;
+        justify-content: center;
+
+        .Card {
             margin-top: 0.5rem;
+            max-width : 20%;
         }
     }
-    
+
 }
 
 //* MOBILE BREAKPOINT...
 @media screen and (max-width: $breakpoint-mobile) {
 
-    .MoviesGrid{
-        .ScrollContainer{
-            display: flex;
-            flex-direction: row;
+    .MoviesGrid {
+        .ScrollContainer {
+            display        : flex;
+            flex-direction : row;
             justify-content: space-between;
         }
     }

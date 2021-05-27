@@ -11,19 +11,23 @@ export const _navWithAuth = [
     title: "Favorite Movies",
     path: _routes.FAVMOVIES,
   },
+  /*
   {
     label: "Watched",
     title: "Watched Movies",
     path: _routes.WATCHED,
   },
+  */
   {
     label: "Profile",
     tabs: [
+      /*
       {
         label: "My Profile",
         title: "Profile",
         path: _routes.PROFILE,
       },
+    */
       {
         label: "Logout",
         title: "Logout",

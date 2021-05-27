@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Col, Row } from "react-bootstrap";
 import ScrollContainer from "react-indiana-drag-scroll";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useSelector } from "react-redux";
 
 //* IMPORTING STYLES...
@@ -20,13 +21,23 @@ export const FavMoviesPage = () => {
           <h4>Favorite Movies</h4>
         </div>
 
-        <Row sm={12} className="justify-content-center">
-          <Suspense fallback={<h1>Loading...</h1>}>
-            {favMovies.map((id) => (
-              <FavMovies className={styles.Card} key={"fav" + id} id={id} />
-            ))}
-          </Suspense>
-        </Row>
+        {favMovies.length ? (
+          <ScrollContainer
+            hideScrollbars
+            activationDistance={10}
+            className={styles.ScrollContainer}
+          >
+            <Suspense fallback={<h1>Loading...</h1>}>
+              {favMovies.map((id) => (
+                <FavMovies className={styles.Card} key={"fav" + id} id={id} />
+              ))}
+            </Suspense>
+          </ScrollContainer>
+        ) : (
+          <div className={styles.Notfound}>
+            <h2 className="text-muted">No favorite movie :(</h2>
+          </div>
+        )}
       </div>
     </>
   );

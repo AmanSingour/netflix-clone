@@ -19,7 +19,7 @@ export const LoginPage = ({ history, ...props }) => {
   });
 
   const [err, setErr] = React.useState({
-    email: " ",
+    email: "",
     password: " ",
   });
 
@@ -53,12 +53,13 @@ export const LoginPage = ({ history, ...props }) => {
   };
 
   const handleSubmit = (event) => {
+    console.log(BASEURL);
     axios
       .post(BASEURL + "user/login", user)
       .then((res) => {
         if (res.status === 200) {
           console.log(res.data.msg);
-          
+
           dispatch(addNote(res.data.msg));
           dispatch(doLogin(res.data.user));
         }
@@ -76,6 +77,15 @@ export const LoginPage = ({ history, ...props }) => {
     <>
       <Container className={styles.Container}>
         <Form className={styles.Form}>
+          <Form.Text
+            style={{
+              marginBottom: "3rem",
+              textAlign: "left",
+            }}
+            className={styles.Heading}
+          >
+            <h2>Login</h2>
+          </Form.Text>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -107,6 +117,15 @@ export const LoginPage = ({ history, ...props }) => {
           >
             LOGIN
           </Button>
+          <Form.Text
+            style={{ marginTop: "2rem", textAlign: "center" }}
+            className="text-monospace text-decoration-none"
+          >
+            {`Don't have an account? `}
+            <a style={{ color: "#E53D36" }} href={`/signup/${user.email}`}>
+              SIGNUP
+            </a>
+          </Form.Text>
         </Form>
       </Container>
     </>

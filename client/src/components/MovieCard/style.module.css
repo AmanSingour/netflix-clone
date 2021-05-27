@@ -26,6 +26,10 @@
   padding: 30% 0;
 }
 
+.heading {
+  border-bottom: 2px solid #E53D36;
+}
+
 .CardContainer {
   margin: 1rem;
   width: 25vw;

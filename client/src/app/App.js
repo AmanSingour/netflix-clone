@@ -79,7 +79,7 @@ const App = ({ user }) => {
                 key={index}
                 onClose={() => dispatch(removeNote(index))}
                 show={note ? true : false}
-                delay={500}
+                delay={1000}
                 autohide
               >
                 <Toast.Header>

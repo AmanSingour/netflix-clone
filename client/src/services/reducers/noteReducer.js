@@ -7,7 +7,7 @@ export const noteReducer = (state = [], action) => {
     case "REMOVE_NOTE":
       newState = [...state];
       newState.splice(action.payload, 1);
-      return [...newState];
+      return newState;
 
     default:
       return state;

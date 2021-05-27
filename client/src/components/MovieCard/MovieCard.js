@@ -26,55 +26,64 @@ export const MovieCard = ({
 
   const [fav, setFav] = React.useState(false);
 
-  const user = useSelector(state => state.user)
+  const user = useSelector((state) => state.user);
 
-  const favMovies = useSelector(state => state.favMovies)
+  const favMovies = useSelector((state) => state.favMovies);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  React.useEffect(()=>{
-    if(favMovies.includes(_id.toString()))
-      setFav(true)
-    else setFav(false)
-  }, [favMovies])
+  React.useEffect(() => {
+    if (favMovies.includes(_id.toString())) setFav(true);
+    else setFav(false);
+  }, [favMovies]);
 
-  const handleClick = movieId =>{
+  const handleClick = (movieId) => {
     const payload = {
       user_id: user.user.id,
-      movie_id: movieId
+      movie_id: movieId,
+    };
+    if (!fav) {
+      axios
+        .post(BASEURL + "movie/fav", payload)
+        .then((res) => {
+          if (res.status === 201) {
+            dispatch(addFav(movieId.toString()));
+            dispatch(addNote(res.data.msg));
+            setFav(true);
+          }
+        })
+        .catch((e) => {
+          if (e.response)
+            if (e.response.status === 400)
+              dispatch(addNote(e.response.data.msg));
+            else dispatch(addNote(e.response.statusText));
+          else console.log(e);
+        });
+    } else {
+      console.log(payload);
+      axios
+        .delete(BASEURL + 'movie/fav', {
+          headers: {
+            // Overwrite Axios's automatically set Content-Type
+            "Content-Type": "application/json",
+          }, data: payload
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            dispatch(removeFav(movieId.toString()));
+            dispatch(addNote(res.data.msg));
+            setFav(false);
+          }
+        })
+        .catch((e) => {
+          if (e.response)
+            if (e.response.status === 400)
+              dispatch(addNote(e.response.data.msg));
+            else dispatch(addNote(e.response.statusText));
+          else console.log(e);
+        });
     }
-    if(!fav){
-      axios.post( BASEURL+'movie/fav', payload)
-      .then((res) => {
-        if (res.status === 201) {
-          dispatch(addFav(movieId.toString()));
-          dispatch(addNote(res.data.msg));
-          setFav(true)
-        }
-      })
-      .catch((e) => {
-        if (e.response)
-          if (e.response.status === 400) dispatch(addNote(e.response.data.msg));
-          else dispatch(addNote(e.response.statusText));
-        else console.log(e);
-      });
-    }else{
-      axios.delete( BASEURL+'movie/fav', payload)
-      .then((res) => {
-        if (res.status === 200) {
-          dispatch(removeFav(movieId.toString()));
-          dispatch(addNote(res.data.msg));
-          setFav(false)
-        }
-      })
-      .catch((e) => {
-        if (e.response)
-          if (e.response.status === 400) dispatch(addNote(e.response.data.msg));
-          else dispatch(addNote(e.response.statusText));
-        else console.log(e);
-      });
-    }
-  }
+  };
 
   return (
     <div
@@ -84,20 +93,23 @@ export const MovieCard = ({
         background: `url(https://image.tmdb.org/t/p/w780${poster_path})`,
       }}
     >
-    {title ?
-      <Card className={styles.Card}>
-        <Card.Header className={styles.CardHeader}>
-          {showFav && (
-            <span style={{ fontSize: "2.5em" }} onClick={() => handleClick(_id)}>
-              {fav? <AiTwotoneHeart color="#E53D36" /> :<AiOutlineHeart />}
-            </span>
-          )}
-        </Card.Header>
-        <Card.Body className={styles.CardBody}>
-          <Card.Text className={styles.Overview}>
-            <strong>{overview}</strong>
-          </Card.Text>
-          {/*
+      {title ? (
+        <Card className={styles.Card}>
+          <Card.Header className={styles.CardHeader}>
+            {showFav && (
+              <span
+                style={{ fontSize: "2.5em" }}
+                onClick={() => handleClick(_id)}
+              >
+                {fav ? <AiTwotoneHeart color="#E53D36" /> : <AiOutlineHeart />}
+              </span>
+            )}
+          </Card.Header>
+          <Card.Body className={styles.CardBody}>
+            <Card.Text className={styles.Overview}>
+              <strong>{overview}</strong>
+            </Card.Text>
+            {/*
                     <div className={styles.CardImg}></div>
                     <Card.Title className={styles.CardTitle}><h3>{title}</h3></Card.Title>
                 
@@ -105,19 +117,19 @@ export const MovieCard = ({
                     {overview}
                 </Card.Text>
                 */}
-        </Card.Body>
-        <Card.Footer className={styles.CardFooter}>
-          <Card.Title className={styles.CardTitle}>
-            <h5>{title}</h5>
-          </Card.Title>
-          <div className={styles.FooterRow}>
-            <small className="text-muted">⭐ {vote_average}</small>
-          </div>
-        </Card.Footer>
-      </Card>
-      :
-      <Skeleton />
-    }
+          </Card.Body>
+          <Card.Footer className={styles.CardFooter}>
+            <Card.Title className={styles.CardTitle}>
+              <h5>{title}</h5>
+            </Card.Title>
+            <div className={styles.FooterRow}>
+              <small className="text-muted">⭐ {vote_average}</small>
+            </div>
+          </Card.Footer>
+        </Card>
+      ) : (
+        <Skeleton />
+      )}
     </div>
   );
 };

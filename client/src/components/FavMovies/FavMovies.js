@@ -1,7 +1,6 @@
 import axios from "axios";
 import React from "react";
-import ScrollContainer from "react-indiana-drag-scroll";
-import { useSelector } from "react-redux";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { MovieCard } from "../../components";
 
 //* IMPORTING TMDB API ROUTES...
@@ -14,27 +13,30 @@ const FavMovies = ({id}) => {
 
   const [movie, setMovie] = React.useState({});
 
-  const [loading, setLoading] = React.useState(true)
+  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
       const disc_movie = FEATURE.movie;
-      const query =
-        BASEURL +
-        disc_movie.QUERY+
-        id+KeyWithRegion
-        
+      const query = BASEURL + disc_movie.QUERY + id + KeyWithRegion;
+
       axios
         .get(query)
         .then((res) => {
-            setMovie(res.data)
-            setLoading(false)
+          setMovie(res.data);
+          setLoading(false)
         })
         .catch((err) => console.log(err));
-  }, []);
+  }, [])
 
   return (
       <>
-        {!loading && <MovieCard showFav={true} key={movie.id} {...movie} />}
+      {loading ? 
+            <SkeletonTheme color="#0e0e0e" highlightColor="#1e1e1e">
+              <Skeleton width={100} />
+            </SkeletonTheme>
+            :
+        <MovieCard className={styles.Card} showFav={true} key={movie.id} {...movie} />
+      }
     </>
   );
 };

@@ -80,6 +80,15 @@ export const SignupPage = ({ history, ...props }) => {
     <>
       <Container className={styles.Container}>
         <Form className={styles.Form}>
+          <Form.Text
+            style={{
+              marginBottom: "3rem",
+              textAlign: "left",
+            }}
+            className={styles.Heading}
+          >
+            <h2>Signup</h2>
+          </Form.Text>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
@@ -124,6 +133,15 @@ export const SignupPage = ({ history, ...props }) => {
           >
             SIGNUP
           </Button>
+          <Form.Text
+            style={{ marginTop: "2rem", textAlign: "center" }}
+            className="text-monospace text-decoration-none"
+          >
+            {`Already have an account? `}
+            <a style={{ color: "#E53D36" }} href={`/login/${user.email}`}>
+              LOGIN
+            </a>
+          </Form.Text>
         </Form>
       </Container>
     </>

@@ -11,6 +11,15 @@
         @extend .vertical-center;
         width: 30%;
         text-align: left;
+
+        .Heading{
+            @extend .heading;
+        }
+
+        h2{
+            font-family: 'Roboto', sans-serif;
+        }
+
         .Button {
             width: 100%;
         }
